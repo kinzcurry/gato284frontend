@@ -30,10 +30,11 @@
 			ref="modal"
 			title="Edite o produto"
 			size="xl"
-			ok-title="Atualizar"
+			ok-only
+			ok-title="Cancel"
 			@show="resetModal"
 			@hidden="resetModal"
-			@ok="handleOk">
+			>
 			
 			<editproduct :prodObj="obj" style="width: 100%; margin-left: 200px;"/>	
 			</b-modal>
@@ -189,20 +190,8 @@ export default {
 			this.prodMeasureQ = item.measureQtt
 		},
 		resetModal: function(){
-			this.modalAppears = false
-		},
-		handleOk: function(){
 			/* eslint-disable no-console */
-			this.prod.name = this.prodName
-			this.prod.impName = this.prodImpName
-			this.prod.categoryId = this.prodCat
-			this.prod.typeId = this.prodType
-			this.prod.comission = this.prodComission
-			this.prod.active = this.prodActive
-			this.prod.sellingPrice = this.prodPrice
-			this.prod.measureId = this.prodMeasure
-			this.prod.measureQtt = this.prodMeasureQ
-			axios.put("http://localhost:8081/products?id=" + this.prodId, this.prod)
+			console.log('entrou no reset modal')
 		},
 		fillObj: function(rowItem){
 			this.obj = rowItem

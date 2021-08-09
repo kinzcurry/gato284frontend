@@ -1,6 +1,6 @@
 <template>
   <div class="col-12 grid-margin" >
-    <div class="col-md-6 grid-margin stretch-card">
+    <div class="col-md-12 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Cadastro de produtos</h4>
@@ -51,6 +51,7 @@
 
 <script>
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export default {
   name: "cadproducts",
@@ -112,6 +113,13 @@ export default {
 				/* eslint-disable no-console */
         console.log(response)
         this.wipeScreen()
+        Swal.fire({
+          position: 'top-end',
+          type: 'success',
+          title: 'Produto cadastrado com sucesso',
+          showConfirmButton: false,
+          timer: 1500
+        })
 			})
       
     },

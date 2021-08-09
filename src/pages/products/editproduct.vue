@@ -6,7 +6,7 @@
           <h4 class="card-title">Edição do produto {{name}}</h4>
           <form class="forms-sample">
             <b-form-group  label="Nome" description="Nome do produto" >
-              <b-form-input v-model="prodObj.name" type="text"></b-form-input>
+              <b-form-input v-model="name" type="text"></b-form-input>
             </b-form-group>
             <b-form-group label="Nome de impressão" description="Nome de impressão" label-for="imp_name">
               <b-form-input v-model="imp_name" type="text" id="imp_name"></b-form-input>
@@ -41,7 +41,7 @@
                 </label>
               </div>
           </form>
-          
+          <b-button variant="light" class="btn btn-fw" @click="createProduct">Atualizar</b-button>
         </div>
     </div>
   </div>
@@ -50,6 +50,7 @@
 
 <script>
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 export default {
   name: "editproduct",
@@ -83,6 +84,7 @@ export default {
         this.comission = 0
       }
       var product = {
+        id: this.prodObj.id,
 				name: this.name,
 				impName: this.imp_name,
 				categoryId: this.selectedCategory,
@@ -95,12 +97,17 @@ export default {
         active: this.active,
         comission: this.comission
       }
-      axios.post("http://localhost:8081/products", product).then(response => {
-				/* eslint-disable no-console */
-        console.log(response)
-        this.wipeScreen()
-			})
-      
+      /* eslint-disable no-console */
+      axios.put("http://localhost:8081/products?id=" + product.id, product)
+      this.$emit('resetModal')
+      Swal.fire({
+          position: 'top-end',
+          type: 'success',
+          title: 'Produto atualizado com sucesso',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        
     }
   }
 }
