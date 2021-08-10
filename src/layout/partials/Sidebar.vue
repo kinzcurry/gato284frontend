@@ -26,6 +26,9 @@
                 <router-link class="nav-link" to="/products/cadproducts/">Produtos</router-link>
               </li>
               <li class="nav-item">
+                <router-link class="nav-link" to="/category/cadcategory/">Categorias</router-link>
+              </li>
+              <li class="nav-item">
                 <router-link class="nav-link" to="/basic-ui/accordions/">Accordion</router-link>
               </li>
               <li class="nav-item">

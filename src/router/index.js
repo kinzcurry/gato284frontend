@@ -33,7 +33,7 @@ export default new Router({
         }
       ]
     },
-     {
+    {
       path: "/products",
       component: layout,
       children: [
@@ -46,6 +46,17 @@ export default new Router({
           path: "listallproducts",
           name: "listallproducts",
           component: () => import("@/pages/products/listallproducts")
+        },
+      ]
+    },
+    {
+      path: "/category",
+      component: layout,
+      children: [
+        {
+          path: "cadcategory",
+          name: "cadcategory",
+          component: () => import("@/pages/category/cadcategory")
         },
       ]
     },

@@ -46,6 +46,7 @@
     "vue-snotify": "^3.2.1",
     "vue-sorted-table": "^1.2.0",
     "vue-star-rating": "^1.6.1",
+    "vue-swatches": "^2.1.1",
     "vue-sweetalert2": "^2.1.5",
     "vue-trix": "github:hanhdt/vue-trix",
     "vue2-ace-editor": "0.0.15",
